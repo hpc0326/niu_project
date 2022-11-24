@@ -1,0 +1,106 @@
+/* Start Rulez */
+
+*{
+    box-sizing: border-box;
+}
+
+
+/* Colors */
+:root{
+    --bg-color: #242333;
+    --seat-color: #c5c5d0;
+    --seat-selected-color: #ff0000;
+    --seat-occupied-color: rgb(72, 69, 69);
+    --mute-color: #777;
+    --bg-rgba-black: rgba(0,0,0,.1);
+    --box-shadow: 0px 3px 16px rgba(225,225,225,.7);
+}
+
+/* body{
+    background-color: var(--bg-color);
+    text-transform: capitalize;
+    color: var(--white-color);
+    font-family: "George";
+    font-size: 1.1em;
+} */
+
+.homepage {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.seat{
+    background-color: var(--seat-color);
+    height: 24px;
+    width: 30px;
+    margin: 3px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.rowseat {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.seat.selected {
+    background-color: var(--seat-selected-color);
+}
+
+.seat.occupied {
+    background-color: var(--seat-occupied-color);
+}
+
+.seat:nth-of-type(2){
+    margin-right: 18px;
+}
+
+.seat:nth-last-of-type(2){
+    margin-left: 18px;
+}
+
+.seat:not(.occupied):hover { /* pointer on it will become big*/
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.showcase .seat:not(.occupied):hover {
+    cursor: default;
+    transform: scale(1);
+}
+
+.showcase {
+    border-radius: 5px;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.showcase li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+}
+
+.seatcontainer {
+    margin-bottom: 30px;
+}
+
+p {
+    margin: 5px 0;
+}
+
+p span {
+    color: aqua;
+}
+
+.stage{
+    margin: 5px ;
+    background-color: black;
+    border-style:  dotted;
+}
