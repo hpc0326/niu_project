@@ -21,5 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.Hello),
     path('index/',views.index),
-    path('ticket/',views.ticket)
+    path('ticket/',views.ticket),
 ]

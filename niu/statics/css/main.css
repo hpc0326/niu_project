@@ -10,10 +10,12 @@
     --bg-color: #242333;
     --seat-color: #c5c5d0;
     --seat-selected-color: #ff0000;
-    --seat-occupied-color: rgb(72, 69, 69);
+    --seat-occupied-color: rgb(5, 216, 231);
+    --seat-unallowed-color : rgba(34, 29, 29, 0.904);
     --mute-color: #777;
     --bg-rgba-black: rgba(0,0,0,.1);
     --box-shadow: 0px 3px 16px rgba(225,225,225,.7);
+    
 }
 
 /* body{
@@ -27,7 +29,7 @@
 .homepage {
     position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
 }
@@ -39,12 +41,19 @@
     margin: 3px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    display: inline-flex;
+}
+
+.seatcontainer {
+    margin-bottom: 30px;
+    flex-wrap: nowrap;
 }
 
 .rowseat {
     display: flex;
     flex-direction: row;
-    
+    justify-content: center; 
+    align-items: center;
 }
 
 .seat.selected {
@@ -55,11 +64,28 @@
     background-color: var(--seat-occupied-color);
 }
 
-.seat:nth-of-type(2){
+.seat.unallowed {
+    background-color: var(--seat-unallowed-color);
+}
+
+.seat.high {
+    background-color: rgb(235, 199, 43);
+}
+
+.seat.low {
+    background-color:  rgb(56, 153, 233);
+}
+
+.seat.prior {
+    border-color: rgb(243, 16, 54);
+    border-width: 2px;
+    border-style: solid;
+}
+.seat:nth-of-type(6){
     margin-right: 18px;
 }
 
-.seat:nth-last-of-type(2){
+.seat:nth-last-of-type(6){
     margin-left: 18px;
 }
 
@@ -87,9 +113,7 @@
     margin: 0 10px;
 }
 
-.seatcontainer {
-    margin-bottom: 30px;
-}
+
 
 p {
     margin: 5px 0;
@@ -99,8 +123,19 @@ p span {
     color: aqua;
 }
 
-.stage{
+.space{
     margin: 5px ;
-    background-color: black;
-    border-style:  dotted;
+    background-color: rgba(252, 237, 174);
+    padding-top: 1%;
+    padding-bottom: 1%;
+    color: black;
+    text-align: center;
 }
+
+.ticketInfo{
+    border-color: rgb(0,0,0);
+    border-width: 2px;
+    border-style: solid;
+    margin-left : 50px;
+}
+
