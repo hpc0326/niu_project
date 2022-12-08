@@ -5,6 +5,9 @@ name = "pypi"
 
 [packages]
 django = "*"
+pymysql = "*"
+configparser = "*"
+mysqlclient = "*"
 
 [dev-packages]
 

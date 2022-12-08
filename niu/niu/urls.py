@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import include, re_path
 from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.Hello),
-    path('index/',views.index),
-    path('ticket/',views.ticket),
+    path('hello/', views.Hello),
+    path('',views.ticket),
+    path('info/',views.result),
+    re_path(r'^niuDB/', include('niu_db.urls')),
 ]

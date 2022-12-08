@@ -44,6 +44,13 @@
     display: inline-flex;
 }
 
+.blank{
+    background-color: white;
+    height: 24px;
+    width: 30px;
+    margin: 3px;
+    display: inline-flex;
+}
 .seatcontainer {
     margin-bottom: 30px;
     flex-wrap: nowrap;
@@ -89,10 +96,12 @@
     margin-left: 18px;
 }
 
-.seat:not(.occupied):hover { /* pointer on it will become big*/
+.seat:not(.unallowed):not(.occupied):hover{ /* pointer on it will become big*/
     cursor: pointer;
     transform: scale(1.2);
 }
+
+
 
 .showcase .seat:not(.occupied):hover {
     cursor: default;
@@ -133,9 +142,7 @@ p span {
 }
 
 .ticketInfo{
-    border-color: rgb(0,0,0);
-    border-width: 2px;
-    border-style: solid;
-    margin-left : 50px;
+    margin-left : 30px;
 }
+
 

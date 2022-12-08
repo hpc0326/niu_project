@@ -1,0 +1,42 @@
+{% extends 'main.html' %}
+{% block ticketInfo %} 
+<div style="margin-left: 30px;">
+    <h3 class="mb-0">購票明細</h3>
+</div>
+<div class="ticketInfo">
+    
+    <div class="list-group w-auto">
+        <div class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+         
+          <div class="d-flex gap-2 w-100 justify-content-between">
+            <div>
+              <h5 class="mb-0">250元票券</h5>
+              <p class="mb-0 opacity-75" id="highcon">尚未選取此區票券</p>
+              <p class="mb-0 opacity-75" id="highcon2" hidden></p>
+            </div>
+            <small class="opacity-50 text-nowrap" id="highti">已選0張</small>
+          </div>
+        </div>
+        <div  class="list-group-item list-group-item-action d-flex gap-3 py-3">
+          <div class="d-flex gap-2 w-100 justify-content-between">
+            <div>
+              <h5 class="mb-0">150元票券</h5>
+              <p class="mb-0 opacity-75" id="lowcon">尚未選取此區票券</p>
+              <p class="mb-0 opacity-75" id="lowcon2" hidden></p>
+            </div>
+            <small class="opacity-50 text-nowrap" id="lowti">已選0張</small>
+          </div>
+        </div>
+        <div  class="list-group-item list-group-item-action d-flex gap-3 py-3">
+          <div class="d-flex gap-2 w-100 justify-content-between">
+              <h5 class="mb-0">總金額</h5>
+              <p class="mb-0 opacity-75" id="total">0元</p>
+          </div>
+        </div>
+    </div>
+
+    <button type="button" class="w-100 btn btn-lg btn-primary"  id="ticketbtn" hidden>
+      前往購票
+    </button>
+</div>
+{% endblock ticketInfo %}

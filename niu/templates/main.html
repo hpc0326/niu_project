@@ -2,6 +2,7 @@
 {% load static %}
 <html lang="en">
 <head>
+    <title>宜蘭大學食品系XX活動購票系統</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,9 +17,9 @@
     <script defer="" src="{% static 'js/main.js' %}"></script>
 </head>
 <body>
-    {%include 'itemp/nav.html' %}
+    {%include 'itemp/navm.html' %}
     <div class="homepage">
-        <span>
+        <span class="ticket">
             {% include 'itemp/seat.html' %}
         </span>
         <span>
@@ -26,12 +27,12 @@
             {% endblock %}
         </span>
     </div>
-        
     
     
     
     
     <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

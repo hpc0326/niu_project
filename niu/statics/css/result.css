@@ -1,0 +1,117 @@
+/* Start Rulez */
+
+*{
+    box-sizing: border-box;
+}
+
+
+/* Colors */
+:root{
+    --bg-color: #242333;
+    --seat-color: #c5c5d0;
+    --seat-selected-color: #ff0000;
+    --seat-occupied-color: rgb(5, 216, 231);
+    --seat-unallowed-color : rgba(34, 29, 29, 0.904);
+    --mute-color: #777;
+    --bg-rgba-black: rgba(0,0,0,.1);
+    --box-shadow: 0px 3px 16px rgba(225,225,225,.7);
+    
+}
+
+
+.homepage {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.seat{
+    background-color: var(--seat-color);
+    height: 24px;
+    width: 30px;
+    margin: 3px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: inline-flex;
+}
+
+.seatcontainer {
+    margin-bottom: 30px;
+    flex-wrap: nowrap;
+}
+
+.rowseat {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    align-items: center;
+}
+
+.seat.selected {
+    background-color: var(--seat-selected-color);
+}
+
+.seat.occupied {
+    background-color: var(--seat-occupied-color);
+}
+
+.seat.unallowed {
+    background-color: var(--seat-unallowed-color);
+}
+
+.seat.high {
+    background-color: rgb(235, 199, 43);
+}
+
+.seat.low {
+    background-color:  rgb(56, 153, 233);
+}
+
+.seat.prior {
+    border-color: rgb(243, 16, 54);
+    border-width: 2px;
+    border-style: solid;
+}
+
+.seat:not(.occupied):hover { /* pointer on it will become big*/
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.showcase .seat:not(.occupied):hover {
+    cursor: default;
+    transform: scale(1);
+}
+
+.showcase {
+    border-radius: 5px;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.showcase li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+}
+
+.space{
+    margin: 5px ;
+    background-color: rgba(252, 237, 174);
+    padding-top: 1%;
+    padding-bottom: 1%;
+    color: black;
+    text-align: center;
+}
+
+.ticketInfo{
+    border-color: rgb(0,0,0);
+    border-width: 2px;
+    border-style: solid;
+    margin-left : 50px;
+}
+
