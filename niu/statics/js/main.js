@@ -70,7 +70,7 @@ seatcontainerhigh.onclick =  (e) => {
 
     if(classList.contains("seat") && !classList.contains("occupied") && !classList.contains("unallowed")){
         if(classList.contains('selected')){
-            high.pop([row, column])
+            high.pop([`${row}-${column}`])
             dollar -= 250
             total.textContent = dollar
             highti.textContent = '已選'+ high.length + '張'
@@ -79,7 +79,7 @@ seatcontainerhigh.onclick =  (e) => {
             updateSelectedSeat();
         }else{
             if(high.length + low.length < 2){
-                high.push([row, column])
+                high.push(`${row}-${column}`)
                 dollar += 250
                 total.textContent = dollar
                 highti.textContent = '已選'+ high.length + '張'
@@ -93,14 +93,17 @@ seatcontainerhigh.onclick =  (e) => {
         }
     }
     if( high.length) {
-         highcon.textContent = `已選擇${high.length}個座位`
-         highcon2.textContent=`${high.map(x => ` ${x[0]}-${x[1]}`)} `
+         //highcon.textContent = `已選擇${high.length}個座位`
+         highcon.hidden = true
+         highcon2.textContent=`${high.map(x => x)} `
          highcon2.hidden = false
     }else{
-        highcon.textContent = '尚未選取此區票券'
+        //highcon.textContent = '尚未選取此區票券'
+        highcon.hidden = false
         highcon2.hidden = true
     }
    
+    console.log(high)
 }
 
  
@@ -114,7 +117,7 @@ seatcontainerlow.onclick = (e) => {
 
     if(classList.contains("seat") && !classList.contains("occupied") && !classList.contains("unallowed")){
         if(classList.contains('selected')){
-            low.pop([row, column])
+            low.pop(`${row}-${column}`)
             dollar -= 150
             total.textContent = dollar
             lowti.textContent = '已選'+ low.length + '張'
@@ -123,7 +126,7 @@ seatcontainerlow.onclick = (e) => {
             updateSelectedSeat();
         }else{
             if(high.length + low.length < 2){
-                low.push([row, column])
+                low.push(`${row}-${column}`)
                 dollar += 150
                 total.textContent = dollar
                 lowti.textContent = '已選'+ low.length + '張'
@@ -137,13 +140,16 @@ seatcontainerlow.onclick = (e) => {
     }
 
     if(low.length) {
-        lowcon.textContent = `已選擇${low.length}個座位`
-        lowcon2.textContent=`${low.map(x => ` ${x[0]}-${x[1]}`)} `
+        //lowcon.textContent = `已選擇${low.length}個座位`
+        lowcon.hidden = true
+        lowcon2.textContent=`${low.map(x => x)} `
         lowcon2.hidden = false
    }else{
         lowcon.textContent = '尚未選取此區票券'
+        lowcon.hidden = false
         lowcon2.hidden = true
    }
+   console.log(low)
 }
  ticketbtn.onclick = (e) => {
     sessionStorage.removeItem('seat')

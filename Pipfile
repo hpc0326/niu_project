@@ -8,6 +8,7 @@ django = "*"
 pymysql = "*"
 configparser = "*"
 mysqlclient = "*"
+uuid = "*"
 
 [dev-packages]
 

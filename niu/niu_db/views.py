@@ -3,7 +3,7 @@ from django.http import JsonResponse , HttpResponse#剛剛的JsonResponse套件
 from niu_db.models import DBTest #從models.py import DBTest 物件
 from niu_db.models import Ticket
 import json
-
+import uuid
 
 # Create your views here.
 def testing(request):
@@ -47,7 +47,8 @@ def get_all(request):
 #send the ticket booking request
 def booking(request):
     item = Ticket()
-    
+    index = str(uuid.uuid1())[0:7]
+    print(index)
     if request.method == 'POST' : 
         #get the ordered seat list
         output = list()
@@ -62,6 +63,7 @@ def booking(request):
         item.seat = tmp.get('seat')
         item.studentID = tmp.get('studentID')
         item.name = tmp.get('name')
+        item.cusuuid = index
         item.save()
 
         return JsonResponse(data={'msg' : 'success'}, status = 200)
@@ -82,12 +84,21 @@ def checking(request):
     else : return JsonResponse(data={'msg' : {"status" : "available", "seat" : tmp.get('seat')}} , status = 200)
 
 def search(request):
+
     if request.method == 'POST':
         tmp = json.loads(request.body.decode('utf-8'))
         output = list()
-        for i in list(Ticket.objects.filter(studentID = tmp.get('studentID')).values_list('seat')) :
-            output.append(i[0])
 
+        if len(Ticket.objects.filter(name = tmp.get('name'))) == 0 :
+            return JsonResponse(data={'msg' : 'no order' }, status = 200)
+        elif len(Ticket.objects.filter(studentID = tmp.get('studentID'))) == 0 : 
+            return JsonResponse(data={'msg' : 'no order' }, status = 200)
+
+        output.append(list(Ticket.objects.filter(studentID = tmp.get('studentID')).values_list("cusuuid"))[0][0])
+
+        for i in list(Ticket.objects.filter(studentID = tmp.get('studentID')).values_list("seat")) :
+            output.append(i[0])
+            
         return JsonResponse(data={'msg' : output}, status = 200)
     else : 
         return JsonResponse(data={'msg' : 'wrong method'}, status = 200)

@@ -1,0 +1,55 @@
+{% extends './result.html' %}
+{% block bookingList %} 
+<div id = 'ordered'>
+    <div style="text-align:center;">
+        <h3 class="mb-0" >訂購票券明細</h3>
+        <br/>
+    </div>
+    <div >
+        <div class="list-group w-auto">
+            <div class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                <div class="d-flex gap-2 w-100 justify-content-between">
+                    <div>
+                        <h5 class="mb-0">訂購人姓名</h5><br/>
+                        <p class="mb-0 opacity-75" id="nameBlank"></p>
+                    </div>
+                </div>
+            </div>
+            <div  class="list-group-item list-group-item-action d-flex gap-3 py-3">
+                <div class="d-flex gap-2 w-100 justify-content-between">
+                    <div>
+                        <h5 class="mb-0">訂購人學號</h5><br/>
+                        <p class="mb-0 opacity-75" id="idBlank"></p>
+                    </div>
+                </div>
+            </div>
+            <div  class="list-group-item list-group-item-action d-flex gap-3 py-3">
+                <div class="d-flex gap-2 w-100 justify-content-between">
+                    <div>
+                        <h5 class="mb-0">訂購座位資訊</h5><br/>
+                        <p class="mb-0 opacity-75" id="seatBlank"></p>
+                    </div>
+                </div>
+            </div>
+            <div  class="list-group-item list-group-item-action d-flex gap-3 py-3">
+                <div class="d-flex gap-2 w-100 justify-content-between">
+                    <div>
+                        <h5 class="mb-0">票券代碼</h5><br/>
+                        <p class="mb-0 opacity-75" id="seatUUID"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <h4>請將此畫面截圖，並於取票時出示</h4>
+    </div>
+</div>
+
+{% endblock bookingList %}
+
+{% block noOrder %}
+<div id = 'noOrder' hidden>
+    <h3>查無訂單 請返回主頁操作</h3>
+    <button class="w-100 btn btn-lg btn-primary"  id="back">返回主頁</button>
+</div>
+{% endblock %}

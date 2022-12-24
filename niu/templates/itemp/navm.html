@@ -3,7 +3,12 @@
       <ul class="nav me-auto">
         <li>Logo</li>
         <li class="nav-item"><h2>國立宜蘭大學XXXX系XXXX活動訂票網站</h2></li>
-        <li class="nav-item"><a href="#" class="nav-link link-dark px-2 active" aria-current="page">首頁</a></li>
+        <div class="text-end" style="float: right;">
+          <button type="button" class="btn btn-outline-dark me-2">Login</button>
+          <button type="button" class="btn btn-warning">Sign-up</button>
+        </div>
+        
+        
       </ul>
     </div>
   </nav>
@@ -44,6 +49,20 @@
     
     </div>
 </header>
+
+
+
+<script>
+  document.getElementById('main').onclick = () => {
+    sessionStorage.clear()
+    window.location = '/'
+  }
+
+  document.getElementById('record').onclick = () => {
+    sessionStorage.clear()
+    window.location = '/result'
+  }
+</script>
 
 
 

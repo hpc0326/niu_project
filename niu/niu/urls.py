@@ -22,6 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/', views.Hello),
     path('',views.ticket),
-    path('info/',views.result),
+    path('ticket/',views.ticket),
+    path('info/',views.info),
+    path('result/', views.result),
     re_path(r'^niuDB/', include('niu_db.urls')),
 ]
