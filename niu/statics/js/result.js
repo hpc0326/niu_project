@@ -21,6 +21,17 @@ const init = () => {
 }
 
 const display = (data) => {
+    const payload = {
+        studentID : sessionStorage.getItem('ID'),
+        name : sessionStorage.getItem('name')
+    }
+    axios.post(
+        'http://localhost:8000/niuDB/howMany/', 
+        payload, 
+        {responseType : 'json'})
+        .then(function(response) {
+            console.log(typeof response.data.msg)}
+        )
     data = data.data.msg
     console.log(data)
     if(data == 'no order'){
@@ -32,7 +43,7 @@ const display = (data) => {
         seatUUID.textContent = data[0]
         let temp
         if (data.length > 2){
-            temp = `${data[1]} ${data[2]}}`
+            temp = `${data[1]} ${data[2]}`
         }else{
             temp = `${data[1]}`
         }

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import JsonResponse , HttpResponse#剛剛的JsonResponse套件
 from niu_db.models import DBTest #從models.py import DBTest 物件
 from niu_db.models import Ticket
+from niu_db.models import Login
 import json
 import uuid
 
@@ -61,7 +62,7 @@ def booking(request):
 
         #save to table
         item.seat = tmp.get('seat')
-        item.studentID = tmp.get('studentID')
+        item.studentID = tmp.get('studentID').lower()
         item.name = tmp.get('name')
         item.cusuuid = index
         item.save()
@@ -83,6 +84,7 @@ def checking(request):
         return JsonResponse(data={'msg' : {"status" : "unavailable", "seat" : tmp.get('seat')}}, status = 200)
     else : return JsonResponse(data={'msg' : {"status" : "available", "seat" : tmp.get('seat')}} , status = 200)
 
+
 def search(request):
 
     if request.method == 'POST':
@@ -101,4 +103,35 @@ def search(request):
             
         return JsonResponse(data={'msg' : output}, status = 200)
     else : 
+        return JsonResponse(data={'msg' : 'wrong method'}, status = 200)
+
+
+def howMany(request):
+
+    if request.method == 'POST':
+
+        tmp = json.loads(request.body.decode('utf-8'))
+        output = list()
+        count = len(Ticket.objects.filter(name = tmp.get('name')))
+
+        return JsonResponse(data={'msg' : str(count)}, status = 200)
+    
+    else :
+        return JsonResponse(data={'msg' : 'wrong method'}, status = 200)
+
+def login(request):
+    
+    if request.method == 'POST':
+
+        tmp = json.loads(request.body.decode('utf-8'))
+        if len(Login.objects.filter(account = tmp.get('account')).values_list('password')) == 0 :
+             return JsonResponse(data={'msg' : 'lose'}, status = 200)
+             
+        if list(Login.objects.filter(account = tmp.get('account')).values_list('password'))[0][0] == tmp['password']:
+            print(list(Login.objects.filter(account = tmp.get('account')).values_list('password'))[0][0])
+            return JsonResponse(data={'msg' : 'win'}, status = 200)
+        
+        return JsonResponse(data={'msg' : 'lose'}, status = 200)
+
+    else :
         return JsonResponse(data={'msg' : 'wrong method'}, status = 200)

@@ -13,3 +13,15 @@ def Hello(request):
 
 def result(request):
     return render(request, './result/content.html')
+
+def search(request):
+    return render(request, './search/person.html')
+
+def BookingError(request):
+    return render(request, './BookingError/BookingError.html')
+
+def adminLogin(request):
+    return render(request, './admin/Login/person.html')
+
+def adminDashboard(request):
+    return render(request, './admin/DashBoard/main.html')

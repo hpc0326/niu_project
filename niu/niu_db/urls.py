@@ -9,5 +9,7 @@ urlpatterns = [
     path('book/', views.booking),
     path('getAll/', views.get_all),
     path('search/', views.search),
-    path('check/', views.checking)
+    path('check/', views.checking),
+    path('howMany/' , views.howMany),
+    path('super/login', views.login)
 ]

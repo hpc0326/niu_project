@@ -1,0 +1,35 @@
+{% extends './search.html' %}
+{% block personInfo %} 
+        
+<br/>
+<div style="flex-direction: column; ">
+    <div style="text-align: center;">
+        <br/><br/><br/>
+        <h1 class="h1 mb-3 fw-normal">查詢票券訂購紀錄</h1>
+        <h4 class="h4 mb-3 fw-normal">請輸入訂購人基本資料</h4>
+    </div>
+    <br/>
+   
+        <!--img class="mb-4" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"-->
+  
+    <div class="form-floating">
+        <label for="Name">姓名</label>
+        
+        <div id="Nameframe">
+            <input type="text" class="form-control" id="Name" placeholder="姓名" required>
+        </div>
+    </div>
+        <br/>
+    <div class="form-floating">
+        <label for="studentID">學號</label>
+        <div id="IDframe">
+            <input type="text" class="form-control" id="studentID" placeholder="學號" pattern="[a-zA-Z]{1}[0-9]{7}" required>
+        </div>
+        <br/><br/>
+        <button class="w-100 btn btn-lg btn-primary" type="submit" id="next">送出查詢</button>
+    </div>
+
+        
+</div>
+
+{% endblock personInfo %}
