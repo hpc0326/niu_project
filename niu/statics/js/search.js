@@ -1,3 +1,5 @@
+import {HOST} from 'API'
+
 const Name = document.getElementById('Name')
 const ID = document.getElementById('studentID')
 const btnnext = document.getElementById('next')
@@ -18,7 +20,7 @@ const sendBooking = () => {
 
         payload['seat'] = seat[0]
         axios.post(
-            'http://localhost:8000/niuDB/book/', 
+            `http://${HOST}/niuDB/book/`, 
             payload, 
             {responseType : 'json'})
             .then(function(response) {
@@ -32,7 +34,7 @@ const sendBooking = () => {
 
             payload['seat'] = seat[1]
             axios.post(
-                'http://localhost:8000/niuDB/book/', 
+                `http://${HOST}/niuDB/book/`, 
                 payload, 
                 {responseType : 'json'})
                 .then(function(response) {
@@ -51,7 +53,7 @@ const sendBooking = () => {
     }else{
         payload['seat'] = seat[0]
         axios.post(
-            'http://localhost:8000/niuDB/book/', 
+            `http://${HOST}/niuDB/book/`, 
             payload, 
             {responseType : 'json'})
             .then(function(response) {

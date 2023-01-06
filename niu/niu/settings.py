@@ -27,8 +27,14 @@ SECRET_KEY = 'django-insecure-%1v$yd)x6x2e_i55v-s^p#t6^t47$dkzn%988l!6ah+9b&%xmc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = []
 
+#GAE
+# 接受各個瀏覽網頁的 host
+ALLOWED_HOSTS = ['*']
+
+# 告訴 GAE 我們的靜態檔案(img, css, js)路徑
+STATIC_ROOT = 'static'
 
 # Application definition
 
@@ -77,7 +83,7 @@ WSGI_APPLICATION = 'niu.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'niu',
@@ -87,7 +93,17 @@ DATABASES = {
         'PORT': '3306'
     }
 }
-
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST': '/cloudsql/iron-ripple-373814:asia-east1:admin',
+        'USER': 'root',
+        'PASSWORD': 'gcpniu123@@@',
+        'NAME': 'admin',
+        'PORT': '3306'
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -131,3 +147,6 @@ STATICFILES_DIRS=[
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+

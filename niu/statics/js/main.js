@@ -1,3 +1,5 @@
+import {HOST} from 'API'
+
 const seatcontainerhigh = document.querySelector('.seatcontainer.high')
 const seatcontainerlow = document.querySelector('.seatcontainer.low')
 const seats = document.querySelectorAll('.rowseat .seat:not(.occupied)');
@@ -18,7 +20,7 @@ let low = []
 const init = () => {
     axios({
         method : 'get',
-        url: 'http://localhost:8000/niuDB/getAll',
+        url: `http://${HOST}/niuDB/getAll`,
         responseType : 'json'
     }).then(function (response) {
         console.log(response)

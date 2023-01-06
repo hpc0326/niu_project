@@ -1,3 +1,6 @@
+import {HOST} from '../API'
+
+
 const account = document.getElementById('account')
 const pw = document.getElementById('password')
 const nextbtn = document.getElementById('next')
@@ -66,9 +69,9 @@ nextbtn.onclick = () => {
             account : account.value,
             password : hash
         }
-     
+  
         axios.post(
-            'http://localhost:8000/niuDB/super/login', 
+            `http://${HOST}/niuDB/super/login`, 
             payload, 
             {responseType : 'json'})
             .then(function(response){

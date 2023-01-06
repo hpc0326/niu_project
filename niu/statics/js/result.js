@@ -1,3 +1,5 @@
+import {HOST} from 'API'
+
 let seatInfo 
 const nameInfo = sessionStorage.getItem('name')
 const IDInfo = sessionStorage.getItem('ID')
@@ -13,7 +15,7 @@ const payload = { "studentID" : IDInfo, "name" : nameInfo }
 
 const init = () => {
     axios.post(
-        'http://localhost:8000/niuDB/search/', 
+        `http://${HOST}/niuDB/search/`, 
         payload, 
         {responseType : 'json'})
         .then(display)
@@ -26,7 +28,7 @@ const display = (data) => {
         name : sessionStorage.getItem('name')
     }
     axios.post(
-        'http://localhost:8000/niuDB/howMany/', 
+        `http://${HOST}/niuDB/howMany/`, 
         payload, 
         {responseType : 'json'})
         .then(function(response) {
